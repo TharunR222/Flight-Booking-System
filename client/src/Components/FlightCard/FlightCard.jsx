@@ -11,7 +11,9 @@ const FlightCard = ({
   date,
 }) => {
   const [isAdmin, setIsAdmin] = useState(false);
+  console.log("isAdmin", localStorage.getItem("isAdmin"));
   if (localStorage.getItem("isAdmin") === "true") {
+    console.log("isAdminIN", localStorage.getItem("isAdmin"));
     setIsAdmin(true);
   }
   const navigate = useNavigate();
