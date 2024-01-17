@@ -8,7 +8,7 @@ const MyBooking = () => {
     const formData = { userId: localStorage.getItem("userId") };
     const func = async () => {
       let response = await fetch(
-        "http://127.0.0.1:4000/fetchBookData/fetchData",
+        "https://flight-booking-system-4i79.onrender.com/fetchBookData/fetchData",
         {
           method: "POST",
           headers: {

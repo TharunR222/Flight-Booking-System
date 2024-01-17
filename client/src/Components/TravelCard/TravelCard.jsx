@@ -36,7 +36,7 @@ const TravelCard = ({ onChange }) => {
       console.log(formData);
       const func = async () => {
         let response = await fetch(
-          "http://127.0.0.1:4000/flights/fetchFlights",
+          "https://flight-booking-system-4i79.onrender.com/flights/fetchFlights",
           {
             method: "POST",
             headers: {

@@ -20,13 +20,16 @@ const Review = () => {
         noOfSeats: seatData,
       };
       console.log(sendData);
-      let response = await fetch("http://127.0.0.1:4000/flights/bookFlights", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(sendData),
-      });
+      let response = await fetch(
+        "https://flight-booking-system-4i79.onrender.com/flights/bookFlights",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(sendData),
+        }
+      );
       let res = await response.json();
       console.log(res);
       return res;

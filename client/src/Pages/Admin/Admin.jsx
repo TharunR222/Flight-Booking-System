@@ -52,13 +52,16 @@ const Admin = () => {
       };
       console.log(sendData);
       const func = async () => {
-        let response = await fetch("http://127.0.0.1:4000/flData/postFlights", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(sendData),
-        });
+        let response = await fetch(
+          "https://flight-booking-system-4i79.onrender.com/flData/postFlights",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(sendData),
+          }
+        );
         let res = await response.json();
         console.log(res);
         return res;

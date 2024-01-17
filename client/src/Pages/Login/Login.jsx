@@ -32,13 +32,16 @@ const Login = () => {
     if (value) {
       console.log(formData);
       const func = async () => {
-        let response = await fetch("http://127.0.0.1:4000/user/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        let response = await fetch(
+          "https://flight-booking-system-4i79.onrender.com/user/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
         let res = await response.json();
         console.log(res);
         return res;
