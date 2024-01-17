@@ -10,6 +10,10 @@ const FlightCard = ({
   seatAvail,
   date,
 }) => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  if (localStorage.getItem(isAdmin) === true) {
+    setIsAdmin(true);
+  }
   const navigate = useNavigate();
   const handleBook = (e) => {
     e.preventDefault();
@@ -50,6 +54,7 @@ const FlightCard = ({
         <button
           onClick={handleBook}
           className="rounded-lg px-5 py-2 mt-2 mr-5 bg-white hover:bg-orange-500 hover:text-white hover:transition-all"
+          disabled={isAdmin}
         >
           Book Flight
         </button>
