@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const FlightCard = ({
@@ -11,11 +11,12 @@ const FlightCard = ({
   date,
 }) => {
   const [isAdmin, setIsAdmin] = useState(false);
-  console.log("isAdmin", localStorage.getItem("isAdmin"));
-  if (localStorage.getItem("isAdmin") === "true") {
-    console.log("isAdminIN", localStorage.getItem("isAdmin"));
-    setIsAdmin(true);
-  }
+  useEffect(() => {
+    if (localStorage.getItem("isAdmin") === "true") {
+      setIsAdmin(true);
+    }
+  }, []);
+
   const navigate = useNavigate();
   const handleBook = (e) => {
     e.preventDefault();
