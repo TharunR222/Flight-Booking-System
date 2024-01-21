@@ -73,14 +73,14 @@ const Signup = () => {
   return (
     <div className="min-h-lvh flex flex-col justify-center items-center">
       <form
-        className="p-10 rounded-md flex flex-col shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]"
+        className="lg:bg-orange-200 lg:w-[96%] lg:px-4 lg:py-6 p-10 rounded-md flex flex-col shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]"
         onSubmit={handleSubmit}
       >
         <label className="py-2" htmlFor="email">
           Email
         </label>
         <input
-          className="p-2 mb-5 border-solid border-2"
+          className="p-2 mb-5 border-solid border-2 lg:rounded-md"
           type="text"
           id="email"
           name="email"
@@ -92,7 +92,7 @@ const Signup = () => {
           Username
         </label>
         <input
-          className="p-2 mb-5 border-solid border-2"
+          className="p-2 mb-5 border-solid border-2 lg:rounded-md"
           type="text"
           id="username"
           name="username"
@@ -104,7 +104,7 @@ const Signup = () => {
           Password
         </label>
         <input
-          className="p-2 mb-10 border-solid border-2"
+          className="p-2 mb-10 border-solid border-2 lg:rounded-md"
           type="password"
           id="password"
           name="password"

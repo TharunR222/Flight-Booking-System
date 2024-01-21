@@ -54,13 +54,13 @@ const Navbar = ({ navColor, borColor }) => {
       <div className="flex flex-row justify-center items-center px-5">
         <img className="h-5" src={CalendarIcon} alt="Calendar-Icon" />
         <p
-          className={`flex justify-center items-center mx-4 font-semiboldbold font-snas`}
+          className={`lg:mx-2 flex justify-center items-center mx-4 font-semiboldbold font-snas`}
         >
           See Yup
         </p>
       </div>
 
-      <div className="flex justify-center items-center">
+      <div className=" flex justify-center items-center">
         {!isNotBtnPage && loggedIn && (
           <button
             className={`border-solid border-2 ${possibleValues[borColor]} px-3 py-1 rounded-md`}
@@ -70,7 +70,7 @@ const Navbar = ({ navColor, borColor }) => {
           </button>
         )}
         <button
-          className={`mx-10 border-solid border-2 ${possibleValues[borColor]} px-3 py-1 rounded-md`}
+          className={`lg:mx-2 mx-10 border-solid border-2 ${possibleValues[borColor]} px-3 py-1 rounded-md`}
           onClick={handleClick}
         >
           {loggedIn ? "Logout" : "Log in"}

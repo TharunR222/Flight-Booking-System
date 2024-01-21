@@ -82,27 +82,27 @@ const Admin = () => {
   return (
     <>
       <Navbar navColor="color1" borColor="color4" />
-      <div className="mx-5">
-        <p className="text-5xl pt-4 font-bold">Hey Admin!</p>
-        <p className="text-4xl pt-2 pb-1">Welcome Back</p>
+      <div className="lg:mx-1 mx-5">
+        <p className="lg:text-2xl text-5xl pt-4 font-bold">Hey Admin!</p>
+        <p className="lg:text-xl text-4xl pt-2 pb-1">Welcome Back</p>
 
-        <form className="pt-4 pb-8 px-10 w-2/3 m-auto flex flex-col font-light shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-lg">
-          <label className="pt-5" htmlFor="flName">
+        <form className="lg:bg-orange-200 lg:w-full lg:px-2 lg:pt-4 pb-8 px-10 w-2/3 m-auto flex flex-col font-light shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] rounded-lg">
+          <label className="pt-5 lg:pt-1" htmlFor="flName">
             Name of the provider
           </label>
           <input
-            className="py-3 border-2"
+            className="py-3 border-2  lg:rounded-md"
             type="text"
             id="flName"
             name="flName"
             value={formData.flName}
             onChange={handleChange}
           />
-          <div className="flex flex-row items-center gap-10 pt-5">
-            <div className="flex flex-row gap-5 items-center w-1/2">
+          <div className="flex flex-row items-center gap-10 pt-5 lg:flex-col lg:gap-1 lg:pt-3">
+            <div className="flex flex-row gap-5 items-center w-1/2 lg:gap-0 lg:flex-col lg:w-full lg:items-start">
               <label htmlFor="dept">Departure</label>
               <input
-                className="py-3 border-2 w-full"
+                className="py-3 border-2 w-full lg:rounded-md"
                 type="text"
                 id="dept"
                 name="fromLoc"
@@ -110,10 +110,10 @@ const Admin = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="flex flex-row gap-5 items-center w-1/2">
+            <div className="flex flex-row gap-5 items-center w-1/2 lg:gap-0 lg:flex-col lg:w-full lg:items-start">
               <label htmlFor="arr">Arrival</label>
               <input
-                className="py-3 border-2 w-full"
+                className="py-3 border-2 w-full  lg:rounded-md"
                 type="text"
                 id="arr"
                 name="toLoc"
@@ -124,7 +124,7 @@ const Admin = () => {
           </div>
           <p className="pt-2">Pick the flight availability dates</p>
           <DatePicker
-            inputClass="py-3 border-2 w-full"
+            inputClass="py-3 border-2 w-full  lg:rounded-md"
             value={dValue}
             onChange={setDValue}
             multiple
@@ -134,7 +134,7 @@ const Admin = () => {
             Pricing
           </label>
           <input
-            className="py-3 border-2"
+            className="py-3 border-2  lg:rounded-md"
             type="text"
             id="price"
             name="pricing"
@@ -145,7 +145,7 @@ const Admin = () => {
             Seat Availability
           </label>
           <input
-            className="py-3 border-2"
+            className="py-3 border-2  lg:rounded-md"
             type="text"
             id="availS"
             name="seatAvail"
@@ -154,7 +154,7 @@ const Admin = () => {
           />
         </form>
         <button
-          className=" flex flex-row items-center w-fit px-12 py-3 -mt-5 rounded-lg  m-auto bg-orange-500 text-white hover:bg-orange-400 hover:text-black hover:scale-105 hover:transition-all"
+          className="lg:mb-10 flex flex-row items-center w-fit px-12 py-3 -mt-5 rounded-lg  m-auto bg-orange-500 text-white hover:bg-orange-400 hover:text-black hover:scale-105 hover:transition-all"
           value="Add Flight Data"
           onClick={handleSubmit}
         >

@@ -11,6 +11,7 @@ const FlightCard = ({
   date,
 }) => {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isMobScreen, setIsMobScreen] = useState(window.innerWidth < 1024);
   useEffect(() => {
     if (localStorage.getItem("isAdmin") === "true") {
       setIsAdmin(true);
@@ -40,18 +41,19 @@ const FlightCard = ({
   };
 
   return (
-    <div className="bg-orange-300 rounded-xl flex flex-row justify-between mx-36 my-4 font-sans shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-      <div className="mx-10 my-4">
-        <p className="text-3xl">{flname}</p>
+    <div className="lg:w-[96%] lg:mx-auto bg-orange-300 rounded-xl flex flex-row justify-between mx-36 my-4 font-sans shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+      <div className="lg:mx-4 mx-10 my-4">
+        <p className="lg:text-2xl text-3xl">{flname}</p>
         <div className="flex flex-col gap-2 pt-2">
           <p>Date: {date}</p>
-          <div className="flex flex-row gap-2">
-            <p>{fromLoc}</p> <p>-------&gt;</p> <p>{toLoc}</p>
+          <div className="lg:gap-1 lg:flex-wrap flex flex-row gap-2">
+            <p>{fromLoc}</p> <p>-------&gt;</p>
+            <p>{toLoc}</p>
           </div>
         </div>
       </div>
 
-      <div className="mx-5 my-5">
+      <div className="lg:mx-0 mx-5 my-5">
         <p>Pricing: {pricing}</p>
         <p>Availability: {seatAvail}</p>
         <button
