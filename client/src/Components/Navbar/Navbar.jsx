@@ -31,6 +31,10 @@ const Navbar = ({ navColor, borColor }) => {
     }
   };
 
+  const returnHome = () => {
+    navigate("/")
+  }
+
   const handleClick = (e) => {
     e.preventDefault();
     if (loggedIn) {
@@ -51,7 +55,7 @@ const Navbar = ({ navColor, borColor }) => {
     <div
       className={`flex flex-row justify-between h-16 ${possibleValues[navColor]}`}
     >
-      <div className="flex flex-row justify-center items-center px-5">
+      <div className="flex flex-row justify-center items-center px-5" onClick={returnHome}>
         <img className="h-5" src={CalendarIcon} alt="Calendar-Icon" />
         <p
           className={`lg:mx-2 flex justify-center items-center mx-4 font-semiboldbold font-snas`}

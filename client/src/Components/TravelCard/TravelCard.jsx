@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const TravelCard = ({ onChange }) => {
   const [isClicked, setIsClicked] = useState("Find flights on the go.. Yup!!");
+  const [isDisable, setIsDisable] = useState(false);
   const [formData, setFormData] = useState({
     fromLocation: "",
     toLocation: "",
@@ -32,8 +33,20 @@ const TravelCard = ({ onChange }) => {
       alert("Please fill out the blank fields");
     }
     if (value) {
+      setIsDisable(true);
+      const sendData = {};
+      for (const key in formData) {
+        var curVal = String(formData[key])
+          .trim()
+          .toLowerCase()
+          .split(" ")
+          .map((word) => word.replace(word[0], word[0].toUpperCase()))
+          .join(" ");
+        sendData[key] = curVal;
+      }
+
       setIsClicked("Fetching available flights for you!!!");
-      console.log(formData);
+      console.log(sendData);
       const func = async () => {
         let response = await fetch(
           "https://flight-booking-system-4i79.onrender.com/flights/fetchFlights",
@@ -42,7 +55,7 @@ const TravelCard = ({ onChange }) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(sendData),
           }
         );
         let res = await response.json();
@@ -55,6 +68,7 @@ const TravelCard = ({ onChange }) => {
           onChange(res);
         })
         .then((res) => {
+          setIsDisable(false);
           for (const key in formData) {
             setFormData((prevFormData) => ({ ...prevFormData, [key]: "" }));
           }
@@ -123,6 +137,7 @@ const TravelCard = ({ onChange }) => {
         <button
           onClick={handleSubmit}
           className="w-fit flex -mt-4 px-12 py-3 rounded-lg m-auto bg-orange-500 text-white hover:bg-orange-400 hover:text-black hover:scale-105 hover:transition-all"
+          disabled={isDisable}
         >
           Find Flights
         </button>

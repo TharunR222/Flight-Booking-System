@@ -96,7 +96,7 @@ const Login = () => {
           required
         />
         <input
-          className="bg-cyan-500 rounded-md px-40 py-2 hover:bg-cyan-400"
+          className="bg-cyan-500 rounded-md px-40 py-2 hover:bg-cyan-400 lg:text-center lg:flex lg:justify-center lg:items-center lg:px-0"
           type="submit"
           value="Login"
         />

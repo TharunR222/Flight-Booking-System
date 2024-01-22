@@ -15,6 +15,7 @@ const MainPage = () => {
       if (fetchedData.length === 0) {
         setDis(true);
       } else {
+        setDis(false);
         setDisplay(true);
       }
     };
@@ -28,7 +29,7 @@ const MainPage = () => {
       <Navbar navColor="color2" borColor="color3" />
       <TravelCard onChange={(newData) => setFetchedData(newData)} />
       {dis && (
-        <p className="flex justify-center items-center text-2xl">
+        <p className="flex justify-center items-center text-2xl lg:text-xl">
           Sorry! Flights not found for the specifed...
         </p>
       )}
