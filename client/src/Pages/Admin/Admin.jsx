@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import DatePicker from "react-multi-date-picker";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Admin = () => {
   const [dValue, setDValue] = useState([]);
@@ -52,16 +53,13 @@ const Admin = () => {
       };
       console.log(sendData);
       const func = async () => {
-        let response = await fetch(
-          "https://flight-booking-system-4i79.onrender.com/flData/postFlights",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(sendData),
-          }
-        );
+        let response = await fetch(BACKEND_URL + "/flData/postFlights", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(sendData),
+        });
         let res = await response.json();
         console.log(res);
         return res;

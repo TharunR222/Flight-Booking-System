@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const TravelCard = ({ onChange }) => {
   const [isClicked, setIsClicked] = useState("Find flights on the go.. Yup!!");
@@ -48,16 +49,13 @@ const TravelCard = ({ onChange }) => {
       setIsClicked("Fetching available flights for you!!!");
       console.log(sendData);
       const func = async () => {
-        let response = await fetch(
-          "https://flight-booking-system-4i79.onrender.com/flights/fetchFlights",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(sendData),
-          }
-        );
+        let response = await fetch(BACKEND_URL + "/flights/fetchFlights", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(sendData),
+        });
         let res = await response.json();
         return res;
       };

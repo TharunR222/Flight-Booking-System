@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const Review = () => {
   const [seatData, setSeatData] = useState(1);
@@ -20,16 +21,13 @@ const Review = () => {
         noOfSeats: seatData,
       };
       console.log(sendData);
-      let response = await fetch(
-        "https://flight-booking-system-4i79.onrender.com/flights/bookFlights",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(sendData),
-        }
-      );
+      let response = await fetch(BACKEND_URL + "/flights/bookFlights", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(sendData),
+      });
       let res = await response.json();
       console.log(res);
       return res;
