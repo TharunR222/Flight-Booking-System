@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export const postFlightData = async (req, res) => {
   const { id, postData } = req.body;
   console.log(req.body);
-  const userId = jwt.verify(id, process.env.ACCESS_TOKEN_SECRET).username;
+  const userId = jwt.verify(id, process.env.ACCESS_TOKEN_SECRET).id;
   try {
     const checkAdmin = await prisma.user.findUnique({
       where: { id: userId },
